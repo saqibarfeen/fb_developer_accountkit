@@ -9,22 +9,27 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-  
+const ACCOUNT_KIT_APP_SECRET= "951918cb975bd3451861f5194695a995";
+const ACCOUNT_KIT_API_VERSION="v1.1";
+const FACEBOOK_APP_ID="271118463755601";
+
 var csrf_guid = Guid.raw();
-const account_kit_api_version = '{{ACCOUNT_KIT_API_VERSION}}';
-const app_id = '{{FACEBOOK_APP_ID}}';
-const app_secret = '{{ACCOUNT_KIT_APP_SECRET}}';
-const me_endpoint_base_url = 'https://graph.accountkit.com/{{ACCOUNT_KIT_API_VERSION}}/me';
-const token_exchange_base_url = 'https://graph.accountkit.com/{{ACCOUNT_KIT_API_VERSION}}/access_token';
+const account_kit_api_version = ACCOUNT_KIT_API_VERSION;
+const app_id = FACEBOOK_APP_ID;
+const app_secret = ACCOUNT_KIT_APP_SECRET;
+const me_endpoint_base_url = `https://graph.accountkit.com/${ACCOUNT_KIT_API_VERSION}/me`;
+const token_exchange_base_url = `https://graph.accountkit.com/${ACCOUNT_KIT_API_VERSION}/access_token`;
 
 
 
 
 function loadLogin() {
     return fs.readFileSync('dist/login.html').toString();
+    //return fs.readFileSync(fs.readFileSync(__dirname + '/dist/' + 'login.html','utf8'));
   }
   
   app.get('/', function(request, response){
+      console.log("app_id=",app_id,"csrf=",csrf_guid,"version=",account_kit_api_version);      
     var view = {
       appId: app_id,
       csrf: csrf_guid,
