@@ -12,13 +12,7 @@ app.use(bodyParser.json());
   
 // var csrf_guid = Guid.raw();
 // const api_version = "v1.1";
-// const app_id = "271118463755601";
-// const app_secret = '951918cb975bd3451861f5194695a995';
-// const me_endpoint_base_url = 'https://graph.accountkit.com/v1.1/me';
-// const token_exchange_base_url = 'https://graph.accountkit.com/v1.1/access_token'; 
-const ACCOUNT_KIT_APP_SECRET= "951918cb975bd3451861f5194695a995";
-const ACCOUNT_KIT_API_VERSION="v1.1";
-const FACEBOOK_APP_ID="271118463755601";
+
 
 var csrf_guid = Guid.raw();
 const api_version = ACCOUNT_KIT_API_VERSION;
