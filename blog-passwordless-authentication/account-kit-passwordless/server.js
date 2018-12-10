@@ -12,7 +12,7 @@ app.use(bodyParser.json());
   
 // var csrf_guid = Guid.raw();
 // const api_version = "v1.1";
-
+//insert credentials lines from !A
 
 var csrf_guid = Guid.raw();
 const api_version = ACCOUNT_KIT_API_VERSION;
